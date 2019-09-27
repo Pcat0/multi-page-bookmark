@@ -7,16 +7,16 @@ function main(query){
         var newQuery = new URLSearchParams();
         pages.forEach(page=>newQuery.append("page", page));
         var nextwindow = window.open(url + "?" + newQuery);
-        
+        console.log(nextwindow);
         nextwindow.addEventListener('load', test, false);
     } else {
-        loadPage(thispage)
+        //loadPage(thispage)
     }
     
 }
 function test(){
     console.log("test");
-    loadPage.bind({}, thispage)()
+    loadPage(thispage);
 }
 function loadPage(url) {
     this.location.href = url;
