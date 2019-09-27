@@ -1,12 +1,21 @@
-new URLSearchParams(window.location.search).getAll("page");
-var pages = new URLSearchParams(window.location.search).getAll("page");
-var thispage = pages.shift();
-if (pages.length > 0) {
-    let url = window.location.origin + window.location.pathname;
-    let queryString = new URLSearchParams();
-    pages.forEach(page=>queryString.append("page", page));
-    var nextwindow = window.open(url + "?" + queryString);
-    nextwindow.addEventListener('load', _=>console.log("hi"), false);
+function main(query){
+    var pages = new URLSearchParams(window.location.search).getAll("page");
+    var thispage = pages.shift();
+    var url = window.location.origin + window.location.pathname;
+    if (pages.length > 0) {
+        var newQuery = new URLSearchParams();
+        pages.forEach(page=>newQuery.append("page", page));
+        var nextwindow = window.open(url + "?" + newQuery);
+        nextwindow.addEventListener('load', loadPage.bind({}, thispage), false);
+    } else {
+        loadPage(thispage)
+    }
+    
 }
-
-//this.location.href = thispage;
+function loadPage(url) {
+    this.location.href = url;
+}
+var queryString = new URLSearchParams(window.location.search);
+if(!queryString.has("blockedPopups")){
+    main(queryString);
+}
