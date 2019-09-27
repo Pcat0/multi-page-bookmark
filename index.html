@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script>
-      //alert("Hello World");
-    </script>
-  </head>
-  <body></body>
+   <head>
+      <script>
+         new URLSearchParams(window.location.search).getAll("page");
+         var pages = new URLSearchParams(window.location.search).getAll("page");
+         var thispage = pages.shift();
+         if (pages.length > 0) {
+         	let url = window.location.origin + window.location.pathname;
+         	let queryString = new URLSearchParams();
+         	pages.forEach(page=>queryString.append("page", page));
+         	window.open(url + "?" + queryString);
+         }
+         this.location.href = thispage;
+      </script>
+   </head>
+   <body></body>
 </html>
