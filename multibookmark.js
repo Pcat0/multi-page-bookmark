@@ -7,7 +7,7 @@ function main(query){
         var newQuery = new URLSearchParams();
         pages.forEach(page=>newQuery.append("page", page));
         var nextwindow = window.open(url + "?" + newQuery);
-        if(nextwindow === null)
+        if(nextwindow !== null)
             loadPage(thispage);
     } else {
         loadPage(thispage);
