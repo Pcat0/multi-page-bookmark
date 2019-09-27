@@ -10,7 +10,7 @@ function main(query){
         console.log(nextwindow);
         nextwindow.addEventListener('load', test, false);
     } else {
-        setTimeout(_=>loadPage(thispage), 5);
+        setTimeout(_=>loadPage(thispage), 1000);
     }
     
 }
