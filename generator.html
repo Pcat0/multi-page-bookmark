@@ -5,12 +5,25 @@
   </head>
   <body>
     Bookmark Name:<input type="text" id="bookmarkName"><br>
-    <textarea id="linkList" rows="4" cols="50"></textarea><br>
+    <textarea id="linkList" rows="6" cols="400" placeholder="https://www.google.com/\nhttp://example.com/\n..."></textarea><br>
     <button id="generateButton">Generate Bookmark</button><br>
-    <a id="helpText">Here is your new multi-page bookmark! To install it cLick and drag the link to your bookmark bar.</a><br>
-    <a id="bookmarkLink" hidden href="url">Muilti page bookmark</a>
+    <a hidden id="helpText">Here is your new multi-page bookmark! To install it cLick and drag the link to your bookmark bar.</a><br>
+    <a hidden id="bookmarkLink" hidden href="url">Muilti page bookmark</a>
     <script>
-      
+      const nameField = document.getElementById("bookmarkName");
+      const linkFeild = document.getElementById("linkList");
+      const genButton = document.getElementById("generateButton");
+      const helperTxt = document.getElementById("helpText");
+      const bookmarkL = document.getElementById("bookmarkLink");
+      genButton.addEventListener("click", function() {
+          var quarry = new URLSearchParams();
+          var linkArray = linkFeild.value.split('\n');
+          linkArray.forEach(link=>quarry.append("page", link));
+          helperTxt.removeAttribute("hidden");
+          bookmarkL.removeAttribute("hidden");
+          bookmarkL.setAttribute('href', "https://pcat0.github.io/multi-page-bookmark" + "?" + quarry);
+          bookmarkL.innerText = nameField.value;
+      }, false);
       
     </script>
   </body>
