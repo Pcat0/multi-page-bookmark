@@ -7,10 +7,10 @@ function main(query){
         var newQuery = new URLSearchParams();
         pages.forEach(page=>newQuery.append("page", page));
         var nextwindow = window.open(url + "?" + newQuery);
-        console.log(nextwindow);
-        nextwindow.addEventListener('load', test, false);
+        if(nextwindow === null)
+            loadPage(thispage);
     } else {
-        setTimeout(_=>loadPage(thispage), 1000);
+        loadPage(thispage);
     }
     
 }
