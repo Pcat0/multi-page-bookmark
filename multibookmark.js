@@ -14,9 +14,8 @@ function main(query){
     
 }
 function loadPage(url) {
-    //this.location.href = url;
+    this.location.href = url;
 }
-debugger;
 var queryString = new URLSearchParams(window.location.search);
 if(!queryString.has("blockedPopups")){
     main(queryString);
