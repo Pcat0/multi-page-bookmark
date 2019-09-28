@@ -16,6 +16,7 @@ function main(query){
 function loadPage(url) {
     window.location.href = url;
 }
+debugger;
 var queryString = new URLSearchParams(window.location.search);
 if(queryString == "")
     loadPage("https://pcat0.github.io/multi-page-bookmark/generator.html");
