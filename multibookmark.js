@@ -14,7 +14,7 @@ function main(query){
     
 }
 function loadPage(url) {
-    this.location.href = url;
+    window.location.href = url;
 }
 var queryString = new URLSearchParams(window.location.search);
 if(queryString == "")
