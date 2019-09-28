@@ -18,7 +18,10 @@ function loadPage(url) {
 }
 debugger;
 var queryString = new URLSearchParams(window.location.search);
-if(queryString == "")
-    loadPage("https://pcat0.github.io/multi-page-bookmark/generator.html");
-if(!queryString.has("blockedPopups"))
-    main(queryString);
+if(!queryString == ""){
+    if(!queryString.has("blockedPopups"))
+        main(queryString);
+}
+
+    
+
