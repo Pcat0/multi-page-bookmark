@@ -16,12 +16,10 @@ function main(query){
 function loadPage(url) {
     window.location.href = url;
 }
-debugger;
 var queryString = new URLSearchParams(window.location.search);
-if(!queryString == ""){
-    if(!queryString.has("blockedPopups"))
-        main(queryString);
-}
+if(!queryString.has("blockedPopups"))
+    main(queryString);
+
 
     
 
