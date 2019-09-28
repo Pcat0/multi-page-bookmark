@@ -17,6 +17,7 @@ function loadPage(url) {
     this.location.href = url;
 }
 var queryString = new URLSearchParams(window.location.search);
-if(!queryString.has("blockedPopups")){
+if(queryString == "")
+    loadPage("https://pcat0.github.io/multi-page-bookmark/generator.html");
+if(!queryString.has("blockedPopups"))
     main(queryString);
-}
